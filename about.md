@@ -4,11 +4,17 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Hi, Im 4p0f1s and my real name is Sergi. 
 
-### More Information
+This is my personal blog for update all my things.
 
-A place to include any other types of information that you'd like to include about yourself.
+### Try Hack Me
+
+<script src="https://tryhackme.com/badge/1482639"></script>
+
+### Hack The Box
+
+<a href="https://app.hackthebox.com/profile/227361">4p0f1s</a>
 
 ### Contact me
 
