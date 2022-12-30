@@ -7,10 +7,10 @@ categories: [THM, easy]
 
 ### Introduction
 
-Simple CTF is an easy CTF on TryHackMe that showcases scanning and enumeration, research, exploitation, and privilege escalation wich are some basics skills needed in CTF.
+[Simple CTF] is an easy CTF on TryHackMe that showcases scanning and enumeration, research, exploitation, and privilege escalation wich are some basics skills needed in CTF.
 
-| [Simple CTF] | ![simple](https://tryhackme-images.s3.amazonaws.com/room-icons/f28ade2b51eb7aeeac91002d41f29c47.png) |
-| ------ | ------ |
+![simple](https://tryhackme-images.s3.amazonaws.com/room-icons/f28ade2b51eb7aeeac91002d41f29c47.png)
+
 
 
 ---
