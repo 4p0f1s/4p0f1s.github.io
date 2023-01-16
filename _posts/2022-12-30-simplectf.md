@@ -26,11 +26,9 @@ nmap -sSV -p- --open --min-rate 5000 <IP> -oN <outputfile.txt>
 We can see there are 3 ports open, 21(ftp), 80(http), 2222(ssh).
 
 - How many services are running under port 1000?
-
 >Answer: 2
 
 - What is running on the higher port?
-
 >Answer: ssh
 
 If we move to the web page, we can see the Apache2 Default page.
@@ -67,13 +65,11 @@ So making a little search about the cms and the version, we can see there is an 
 ![cve](/images/THM/simplectf/Captura7.PNG)
 
 - What's the CVE you're using against the application?
-
 >Answer: CVE-2019-9053
 
 The CVE explains there is an issue and is it possible with the News module, through a crafted URL, to achieve unauthenticated blind time-based **SQL injection** via the m1_idlist parameter.
 
 - To what kind of vulnerability is the application vulnerable?
-
 >Answer: sqli
 
 ```sh
@@ -95,7 +91,6 @@ Let's run it and see what we get.
 Et voila! We already have the credentials!
 
 - What's the password?
-
 >Answer: secret
 
 Time to get into the machine with the credentials we've found.
@@ -109,7 +104,6 @@ python -c 'import pty;pty.spawn("<shell>")'
 ![ssh](/images/THM/simplectf/Captura11.PNG)
 
 - Where can you login with the details obtained?
-
 >Answer: ssh
 
 If we show the actual directory, we can see there is a file called user.txt. In it, we can found the user flag.
@@ -122,7 +116,6 @@ cat user.txt
 ![userflag](/images/THM/simplectf/Captura12.PNG)
 
 - What's the user flag?
-
 >Answer: G00d j0b, keep up!
 
 For see if there is other user, we list the /home/ directory, and we found the user sunbath.
@@ -134,7 +127,6 @@ ls /home/
 ![user](/images/THM/simplectf/Captura13.PNG)
 
 - Is there any other user in the home directory? What's its name?
-
 >Answer: sunbath
 
 To finish the machine, we need to do the privileges escalation, and if we run **sudo -l** we can see that the **vim** binary can be executed with root privileges without password.
@@ -149,7 +141,6 @@ sudo vim -c ':!<shell>'
 ![sudo](/images/THM/simplectf/Captura14.PNG)
 
 - What can you leverage to spawn a privileged shell?
-
 >Answer: vim
 
 ```sh
@@ -161,7 +152,6 @@ cat root.txt
 ![rootflag](/images/THM/simplectf/Captura15.PNG)
 
 - What's the root flag?
-
 >Answer: W3ll d0n3. You made it!
 
  [Simple CTF]: https://tryhackme.com/room/easyctf

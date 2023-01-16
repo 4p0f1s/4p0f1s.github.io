@@ -35,11 +35,9 @@ Inside FTP we can see the file called **.info.txt**, so we download it.
 ![ftp](/images/THM/boilerctf/Captura1.PNG)
 
 - File extension after anon login
-
 >Answer: txt
 
 - What is on the highest port?
-
 >Answer: ssh
 
 Let's see what is the content of the file. It returns a phrase, and It seems to be in ROT13.
@@ -60,11 +58,9 @@ If we go to the http in the port 10000 we can see a Webmin login panel.
 ![webmin](/images/THM/boilerctf/Captura2.PNG)
 
 - What's running on port 10000?
-
 >Answer: webmin
 
 - Can you exploit the service running on that port? (yay/nay answer)
-
 >Answer: nay
 
 And if we go to the standard http port, we find an apache2 default page.
@@ -108,7 +104,6 @@ Here we can see the CMS Joomla.
 ![joomla](/images/THM/boilerctf/Captura11.PNG)
 
 - What's CMS can you access?
-
 >Answer: joomla
 
 Like in the file **.info.txt** said, let's keep enumerating.
@@ -138,7 +133,6 @@ If we list the directory, we can see a file with the name **log.txt**.
 ![cyberchef](/images/THM/boilerctf/Captura15.PNG)
 
 - The interesting file name in the folder?
-
 >Answer: log.txt
 
 
@@ -175,7 +169,6 @@ cat backup.sh | more
 ![cyberchef](/images/THM/boilerctf/Captura18.PNG)
 
 - Where was the other users pass stored(no extension, just the name)?
-
 >Answer: backup
 
 Time to log in with stoner.
@@ -197,7 +190,6 @@ cat .secret
 ![cyberchef](/images/THM/boilerctf/Captura20.PNG)
 
 - user.txt
-
 >Answer: You made it till here, well done.
 
 It's time to elevate our privileges so If we search for suid binaries we can see the **find** binary.
@@ -217,7 +209,6 @@ We can use these permissions to elevate our privileges. If we don't know how to 
 ![cyberchef](/images/THM/boilerctf/Captura22.PNG)
 
 - What did you exploit to get the privileged user?
-
 >Answer: find
 
 Being root, now we can go to root directory and show the root flag.
@@ -233,7 +224,6 @@ cat root.txt
 And with this we've finished the machine.
 
 - root.txt
-
 >Answer: It wasn't that hard, was it?
 
 

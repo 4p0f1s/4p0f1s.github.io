@@ -7,7 +7,7 @@ categories: [THM, easy]
 
 ### Introduction
 
-[Bounty Hacker] is a easy CTF on TryHackMe that focus on wordlist attack and sudo privilege escalation.
+[Bounty Hacker] is an easy CTF on TryHackMe that focus on wordlist attack and sudo privilege escalation.
 
 ![Bounty Hacker](/images/THM/bountyhacker/logo.jpeg)
 
@@ -49,7 +49,6 @@ cat task.txt
 The other file, when it is shown, we see in the final part the signature of lin.
 
 - Who wrote the task list?
-
 >Answer: lin
 
 With the above information, let's try to do a wordlist attack with [hydra].
@@ -61,11 +60,9 @@ hydra -l lin -P locks.txt <IP> ssh
 ![hydra](/images/THM/bountyhacker/Captura5.PNG)
 
 - What service can you bruteforce with the text file found?
-
 >Answer: ssh
 
 - What is the users password?
-
 >Answer: RedDr4gonSynd1cat3
 
 How we got the credentials, let's connect to the machine.
@@ -86,7 +83,6 @@ cat user.txt
 ![user flag](/images/THM/bountyhacker/Captura7.PNG)
 
 - user.txt
-
 >Answer: THM{CR1M3_SyNd1C4T3}
 
 Now is the time to elevate our privileges so, we try with **sudo -l** to see if we can do something.
@@ -111,7 +107,6 @@ cat root.txt
 ![root flag](/images/THM/bountyhacker/Captura9.PNG)
 
 - root.txt
-
 >Answer: THM{80UN7Y_h4cK3r}
 
 
