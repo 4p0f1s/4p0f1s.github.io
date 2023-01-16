@@ -25,6 +25,10 @@ I'm in the way to get the eJPTv2 and other cybersecurity certs.
 
 Make the program is a project that we are doing with my partner [Daniel Fraile], It will be a learning programming platform. For now is under development.
 
+### Atenea CCN Cert
+
+![Atenea rank](images/atenea.PNG)
+
 ### Contact me
 
 [4p0f1s@protonmail.com](mailto:4p0f1s@protonmail.com)
