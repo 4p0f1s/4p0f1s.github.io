@@ -16,7 +16,7 @@ I completed the machine without using metasploit, but you can use It to complete
 
 ---
 
-Let's start scaning the machine with nmap.
+Let's start scanning the machine with nmap.
 
 ```sh
 nmap -sSV -p- -open --min-rate 5000 <IP> -oN <outputfile.txt>

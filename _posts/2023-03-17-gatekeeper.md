@@ -14,7 +14,7 @@ categories: [THM, medium]
 
 ---
 
-Let's start scaning the machine with nmap.
+Let's start scanning the machine with nmap.
 
 We can see some ports open.
 

@@ -14,7 +14,7 @@ categories: [THM, medium]
 
 ---
 
-Let's start scaning the machine with nmap.
+Let's start scanning the machine with nmap.
 Like we can see in the scan, it returns, 4 open ports.
 
 ```sh
